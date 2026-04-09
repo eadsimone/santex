@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import type {
   CategoryFilter,
   Feedback,
@@ -16,6 +16,9 @@ import { useDebounce } from './useDebounce'
 
 const STORAGE_KEY = 'feedback-explorer-filters-v1'
 const MAX_SEARCH_LENGTH = 500
+
+/** Rows per page after filter/sort (v2). */
+export const FEEDBACK_PAGE_SIZE = 25
 
 export interface PersistedFilters {
   search: string
@@ -106,10 +109,17 @@ export interface UseFeedbackListResult {
   sort: SortOption
   setSort: (v: SortOption) => void
   filteredSorted: Feedback[]
+  pagedItems: Feedback[]
+  page: number
+  setPage: (p: number) => void
+  totalPages: number
+  totalItems: number
+  pageSize: number
 }
 
 export function useFeedbackList(items: readonly Feedback[]): UseFeedbackListResult {
   const [filters, setFilters] = useState<PersistedFilters>(() => loadFilters())
+  const [page, setPage] = useState(1)
 
   const update = useCallback((patch: Partial<PersistedFilters>) => {
     setFilters((prev) => {
@@ -139,6 +149,28 @@ export function useFeedbackList(items: readonly Feedback[]): UseFeedbackListResu
     filters.sort,
   ])
 
+  const totalItems = filteredSorted.length
+  const totalPages = Math.max(1, Math.ceil(totalItems / FEEDBACK_PAGE_SIZE))
+
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      setPage(1)
+    }, 0)
+    return () => window.clearTimeout(t)
+  }, [debouncedSearch, filters.category, filters.status, filters.sort])
+
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      setPage((p) => Math.min(Math.max(1, p), totalPages))
+    }, 0)
+    return () => window.clearTimeout(t)
+  }, [totalPages])
+
+  const pagedItems = useMemo(() => {
+    const start = (page - 1) * FEEDBACK_PAGE_SIZE
+    return filteredSorted.slice(start, start + FEEDBACK_PAGE_SIZE)
+  }, [filteredSorted, page])
+
   const setSearch = useCallback(
     (v: string) => update({ search: v }),
     [update],
@@ -156,6 +188,10 @@ export function useFeedbackList(items: readonly Feedback[]): UseFeedbackListResu
     [update],
   )
 
+  const goToPage = useCallback((p: number) => {
+    setPage(Math.min(Math.max(1, p), totalPages))
+  }, [totalPages])
+
   return {
     search: filters.search,
     setSearch,
@@ -166,5 +202,11 @@ export function useFeedbackList(items: readonly Feedback[]): UseFeedbackListResu
     sort: filters.sort,
     setSort,
     filteredSorted,
+    pagedItems,
+    page,
+    setPage: goToPage,
+    totalPages,
+    totalItems,
+    pageSize: FEEDBACK_PAGE_SIZE,
   }
 }
