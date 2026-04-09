@@ -1,0 +1,24 @@
+.wrap {
+  display: block;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 1px dashed var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface);
+}
+
+.title {
+  display: block;
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--app-text);
+}
+
+.desc {
+  display: block;
+  margin: 0;
+  color: var(--app-muted);
+  max-width: 28rem;
+  margin-inline: auto;
+}

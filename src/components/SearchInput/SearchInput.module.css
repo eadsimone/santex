@@ -1,0 +1,26 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: min(100%, 16rem);
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--app-text);
+}
+
+.input {
+  font: inherit;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-border);
+  background: var(--app-input-bg);
+  color: var(--app-text);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}

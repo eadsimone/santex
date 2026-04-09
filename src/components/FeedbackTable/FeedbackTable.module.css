@@ -1,0 +1,71 @@
+.scroll {
+  overflow-x: auto;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface);
+}
+
+.caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.th {
+  padding: 0.65rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--app-muted);
+  background: var(--app-table-head);
+  border-bottom: 1px solid var(--app-border);
+}
+
+.tr {
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.tr:nth-child(even) {
+  background: var(--app-table-stripe);
+}
+
+.tr:hover,
+.tr:focus-visible {
+  background: var(--app-table-hover);
+  outline: none;
+}
+
+.trSelected {
+  box-shadow: inset 3px 0 0 0 var(--app-accent);
+}
+
+.td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--app-border);
+  vertical-align: middle;
+  color: var(--app-text);
+  word-break: break-word;
+}
+
+.tdNowrap {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--app-border);
+  vertical-align: middle;
+  color: var(--app-text);
+  white-space: nowrap;
+}

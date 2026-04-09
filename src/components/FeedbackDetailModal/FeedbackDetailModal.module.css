@@ -1,0 +1,146 @@
+.dialog {
+  padding: 0;
+  border: none;
+  border-radius: var(--app-radius);
+  max-width: min(36rem, calc(100vw - 2rem));
+  width: 100%;
+  background: var(--app-surface);
+  color: var(--app-text);
+  box-shadow: var(--app-shadow-lg);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  max-height: min(85vh, 720px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.close {
+  font: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-border);
+  background: var(--app-input-bg);
+  color: var(--app-text);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+.body {
+  padding: 1rem 1.1rem 1.25rem;
+  overflow: auto;
+}
+
+.section {
+  margin-bottom: 1.25rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+
+.plain {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.plainMuted {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--app-muted);
+  word-break: break-word;
+}
+
+.dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dlRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+}
+
+.dt {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--app-muted);
+  min-width: 5rem;
+}
+
+.dd {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.statusLabel {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.select {
+  font: inherit;
+  min-width: 12rem;
+  max-width: 100%;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-border);
+  background: var(--app-input-bg);
+  color: var(--app-text);
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

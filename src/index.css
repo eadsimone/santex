@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light dark;
+  --app-text: #0f172a;
+  --app-muted: #64748b;
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-border: #e2e8f0;
+  --app-header-bg: #ffffff;
+  --app-input-bg: #ffffff;
+  --app-code-bg: #f1f5f9;
+  --app-accent: #4f46e5;
+  --app-accent-contrast: #ffffff;
+  --app-accent-soft: rgba(79, 70, 229, 0.2);
+  --app-table-head: #f1f5f9;
+  --app-table-stripe: rgba(241, 245, 249, 0.6);
+  --app-table-hover: #eef2ff;
+  --app-radius: 10px;
+  --app-radius-sm: 6px;
+  --app-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  --app-shadow-lg:
+    0 25px 50px -12px rgba(15, 23, 42, 0.25);
+
+  --app-badge-open-bg: #eff6ff;
+  --app-badge-open-fg: #1d4ed8;
+  --app-badge-open-border: #bfdbfe;
+  --app-badge-progress-bg: #fffbeb;
+  --app-badge-progress-fg: #b45309;
+  --app-badge-progress-border: #fde68a;
+  --app-badge-resolved-bg: #ecfdf5;
+  --app-badge-resolved-fg: #047857;
+  --app-badge-resolved-border: #a7f3d0;
+
+  --app-priority-high-bg: #fef2f2;
+  --app-priority-high-fg: #b91c1c;
+  --app-priority-high-border: #fecaca;
+  --app-priority-medium-bg: #fffbeb;
+  --app-priority-medium-fg: #b45309;
+  --app-priority-medium-border: #fde68a;
+  --app-priority-low-bg: #f8fafc;
+  --app-priority-low-fg: #475569;
+  --app-priority-low-border: #e2e8f0;
+
+  --app-danger-bg: #fef2f2;
+  --app-danger-border: #fecaca;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--app-text);
+  background: var(--app-bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-text: #e5e7eb;
+    --app-muted: #9ca3af;
+    --app-bg: #0b0f17;
+    --app-surface: #111827;
+    --app-border: #1f2937;
+    --app-header-bg: #0f172a;
+    --app-input-bg: #0f172a;
+    --app-code-bg: #1f2937;
+    --app-accent: #818cf8;
+    --app-accent-contrast: #0b0f17;
+    --app-accent-soft: rgba(129, 140, 248, 0.25);
+    --app-table-head: #1f2937;
+    --app-table-stripe: rgba(31, 41, 55, 0.55);
+    --app-table-hover: #1e1b4b;
+    --app-shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+
+    --app-badge-open-bg: #172554;
+    --app-badge-open-fg: #93c5fd;
+    --app-badge-open-border: #1e3a8a;
+    --app-badge-progress-bg: #422006;
+    --app-badge-progress-fg: #fcd34d;
+    --app-badge-progress-border: #78350f;
+    --app-badge-resolved-bg: #064e3b;
+    --app-badge-resolved-fg: #6ee7b7;
+    --app-badge-resolved-border: #047857;
+
+    --app-priority-high-bg: #450a0a;
+    --app-priority-high-fg: #fca5a5;
+    --app-priority-high-border: #7f1d1d;
+    --app-priority-medium-bg: #422006;
+    --app-priority-medium-fg: #fcd34d;
+    --app-priority-medium-border: #78350f;
+    --app-priority-low-bg: #1f2937;
+    --app-priority-low-fg: #cbd5e1;
+    --app-priority-low-border: #334155;
+
+    --app-danger-bg: #450a0a;
+    --app-danger-border: #7f1d1d;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
